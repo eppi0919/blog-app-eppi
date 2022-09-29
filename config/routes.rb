@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: [:new, :create]
+
+    resource :like, only: [:create, :destroy]
   end
 
   resource :profile, only:[:show, :edit, :update] #プロフィールは１つあれば良いから単数形
-
+  resources :favorites, only: [:index]
 end
