@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show]
+  # authenticate_user!はログインしているかを確認
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
